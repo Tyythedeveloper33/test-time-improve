@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+<nav>
+    <a href="highscores.html">View highscores!</a>
+    <h1>Test-time: <span id="time">00:00</span></h1>
+</nav>
+<body>
+   
+    <div id="question-box">
+         <h1>Highscores!!</h1>
+        <p >  <span id="username"></span>: <span id="percent"></span>%</p>
+        <h3>hit restart to try again, but with half the Time !!</h3>
+        <button id="RestartQuiz"class="btn">Restart</button>
+    </div>
+    
+    <footer>
+        Github:Tyythedeveloper33 ||  Email:webstertyler81@yahoo.com
+    </footer>
+
+    <script>
+ // We can update/modify the DOM
+        var userElement = document.getElementById('username');
+        userElement.textContent = savedName;
+        var userScore = document.getElementById('percent');
+        userScore.textContent = savedScore;
+
+
+        //  we need to make sure we GRAB any data in localStorage (by the "KEY")
+        var savedName = localStorage.getItem('prompt');
+        console.log("Saved Name: ", savedName);
+        var savedScore = localStorage.getItem('percent');
+        console.log("Saved Scores: ", savedScore);
+        
+        
+        
+       
+        //create array for score
+
+      
+      
+
+        //out put the array of objects 
+        console.log(userScore);
+// logs it to page using string all together
+ var storedObject = JSON.parse(localStorage.getItem('userScore'));
+ // convert the object to a string representation
+ var objectString = JSON.stringify(storedObject);
+ // logs the string representation onto page
+ console.log(objectString);
+ // extract the values from the object 
+ var username = storedObject.username;
+ var scoredUser = storedObject.userScore;
+ // display the string on your page
+ document.getElementById('username').textContent = username, + 'userScore' ;
+ // add event listener for restart button
+  var restartQuizBtn = document.querySelector("#RestartQuiz");
+  //trigger back to start screen when clicked
+  restartQuizBtn.addEventListener('click', restart);
+  function restart(){
+     // - target our container
+     var questionContainer = document.querySelector("#question-box");
+        // - remove or clear all contents
+        questionContainer.innerHTML ="";
+        startTest();
+        timer();
+  }
+// Time Placeholder (global)
+var countdown = 75;
+
+
+function timer() {
+   var interval = setInterval(function() {
+       // console.log("Count: ", countdown);
+        // Update our countdown variable value
+        countdown = countdown - 1;
+        // countdown--
+        // Let's update the value on the DOM (Browser)
+        timerElement.textContent = countdown;
+        // Condition to TEST if we ran out of time 
+        if(countdown === 0) {
+            console.log("Timer Expired...");
+            clearInterval(interval);
+            getPercent();
+        }
+
+    }, 1000)
+
+};
+
+
+
+
+    </script>
+    <script src= "script.js"></script>
+
+</body>
+</html>

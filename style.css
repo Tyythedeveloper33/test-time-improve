@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+   
+  /* above is general page styling*/
+  /* below is nav bar styling*/
+
+  a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    margin: 15px;
+    color: white;
+  }
+  h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    text-align: right;
+    margin-right: 3%;
+    color: white;
+  }
+  nav{
+    background-color: grey;
+    min-width: max-content;
+    
+  }
+  /* below is styling for question-box*/
+  #question-box{
+background-color: grey;
+width: 450px;
+height: 400px;
+margin-left: 30%;
+margin-top: 5%;
+  }
+
+  /* start game stylying */
+  #question-box h1 {
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align:center;
+    color: white;
+    margin: 20px;
+    
+  }
+  #question-box h2 {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+  }
+  #question-box h3 {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+  }
+  #question-box #startQuiz {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 25px;
+    margin-left: 38.5%;
+    width: 100px;
+  }
+  
+  /*styling for footer*/
+  footer{
+    font-size: 20px;
+    background-color: gray;
+    padding: 50px;
+    margin-top:15%;
+    color: white;
+   text-align: center;
+   font-weight: bolder;
+   
+  }
+ /*styling for radio buttons (front-end_q)*/
+ p, label {
+  font: 1rem 'fira Sans', sans-serif;
+ }
+ input{
+  margin: 0.4rem;
+ }
+ /*styling for general question*/
+ fieldset {
+  font-size: 20px;
+  color: white;
+ justify-content: center;
+ height: 400px;
+ }
+ div{
+  margin: 20px;
+ }
+ 
+/* styuling for highscores*/
+#highscore-box{
+background-color: grey;
+width: 450px;
+height: 400px;
+margin-left: 30%;
+margin-top: 5%;
+  }
+  /*button styling*/
+
+  button {
+    font-size: 30px;
+   margin-left: 170px;
+   margin-top: 30px;
+  }
+ span{
+  font-size: 20px;
+  color: white;
+ }
+ p {
+  font-size: 20px;
+  color: white;
+ }
+
+ .label{
+  font-size: 50px;
+ }
+
+ /*media query*/
+ 
+  
+   div #question-box{
+  justify-content: center;
+width: 150px;
+
+    }
+  
+ 
+  html,body,footer{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+   h1, h3 {
+    font-size: 20px;
+    color: white;
+  }
+  p{
+    text-align: center;
+  
+  }
+  /* submit btn*/
+  #submit {
+   display: none;
+  }
