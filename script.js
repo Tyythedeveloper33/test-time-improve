@@ -1,3 +1,4 @@
+// answer array
 
   
   
@@ -59,14 +60,15 @@ var correctAnswerCount = 0;
 
 // defining the variables
 var questionContainer = document.querySelector("#question-box");
-var submitBtn = document.querySelector("#submit");
+// var submitBtn = document.querySelector("#submit");
 var startQuizBtn = document.querySelector("#startQuiz");
 
 
 // adding event listeners
 startQuizBtn.addEventListener('click', renderQuestion);
-submitBtn.addEventListener("click", handleAnswerSelection);
-questionContainer.addEventListener("submit", handleAnswerSubmission)
+// submitBtn.addEventListener("click", handleAnswerSelection);
+// questionContainer.addEventListener("click", handleAnswerSelection)
+// questionContainer.addEventListener("submit", handleAnswerSubmission)
 
 // this brings up question 1
 function renderQuestion() {
@@ -74,8 +76,10 @@ function renderQuestion() {
   var newFieldset = document.createElement("fieldset");
   var newLegend = document.createElement("legend");
   newLegend.textContent = question.question;
-
-
+  var submitBtn = document.createElement("button");
+  submitBtn.classList.add("answer-btn");
+  submitBtn.textContent = "Submit";
+  submitBtn.addEventListener('click', handleAnswerSubmission);
   // Appending the legend element containing the question text to the fieldset
   newFieldset.appendChild(newLegend);
   question.answers.forEach(function(answer, index) {
@@ -91,34 +95,57 @@ function renderQuestion() {
   questionContainer.appendChild(submitBtn);
 }
 
-
+/*
 function handleAnswerSelection(event) {
+  console.log("Event Target: ", event.target);
   var selectedAnswer = Number(event.target.value);
+  console.log("Selected: ", selectedAnswer);
+  console.log("Current: ", currentQuestion);
   var currentQuestion = questions[questionIndex];
-
-
-  if (currentQuestion.answers[selectedAnswer].correct === true) {
+  
+  
+  if (currentQuestion.answers[selectedAnswer].correct) {
     console.log("correct!!");
     correctAnswerCount++;
+    handleAnswerSubmission();
   }else {
     console.log("wrong Answer !");
-  }
-    
-  }
-function handleAnswerSubmission() {
+    handleAnswerSubmission();
+  }   
+}
+*/
+
+function checkAnswer(idx) {
+  var currentQuestion = questions[questionIndex];
+  if (currentQuestion.answers[idx].correct) {
+    console.log("correct!!");
+    correctAnswerCount++;
+    showNextQuestion()
+  }else {
+    console.log("wrong Answer !");
+    showNextQuestion()
+  }   
+  
+}
+
+function handleAnswerSubmission(event) {
+  // event.preventDefault();
   var selectedAnswer = document.querySelector("input[name='answer']:checked");
-  if (selectedAnswer) {
-    handleAnswerSelection(selectedAnswer);
-    showNextQuestion();
-    } else {
-      alert('please select an answer');
-    }
+  if (!selectedAnswer) {
+    alert('please select an answer');
   }
-    
-  // new new
-  function showNextQuestion() {
-    questionIndex++;
-    if (questionIndex < questions.length) {
+  
+  console.log("Answer Submission: ", selectedAnswer);
+  console.log("Value: ", selectedAnswer.value);
+  
+  checkAnswer(selectedAnswer.value)
+}
+
+// new new
+function showNextQuestion() {
+  console.log("Correct Count: ", correctAnswerCount);
+  questionIndex++;
+  if (questionIndex < questions.length) {
       renderQuestion();
     } else {
       showResult();
@@ -128,4 +155,14 @@ function handleAnswerSubmission() {
   
   function showResult() {
     var score = correctAnswerCount * 20;
-    console.log("score: " + score + "% " )};
+    console.log("score: " + score + "% " )
+    
+
+    // We could empty the questions container 
+    // --> dynamically create the Result Container(conent - form)
+
+    // We could use a prompt to gather user data
+
+    // --> once user submits data 
+       // --> document.location.reload('highscores.html');
+  };
