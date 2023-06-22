@@ -73,6 +73,7 @@ startQuizBtn.addEventListener('click', renderQuestion);
 
 // this brings up question 1
 function renderQuestion() {
+   timer()
   var question = questions[questionIndex];
   var newFieldset = document.createElement("fieldset");
   var newLegend = document.createElement("legend");
@@ -96,34 +97,18 @@ function renderQuestion() {
   questionContainer.appendChild(submitBtn);
 }
 
-/*
-function handleAnswerSelection(event) {
-  console.log("Event Target: ", event.target);
-  var selectedAnswer = Number(event.target.value);
-  console.log("Selected: ", selectedAnswer);
-  console.log("Current: ", currentQuestion);
-  var currentQuestion = questions[questionIndex];
-  
-  
-  if (currentQuestion.answers[selectedAnswer].correct) {
-    console.log("correct!!");
-    correctAnswerCount++;
-    handleAnswerSubmission();
-  }else {
-    console.log("wrong Answer !");
-    handleAnswerSubmission();
-  }   
-}
-*/
+
 
 function checkAnswer(idx) {
   var currentQuestion = questions[questionIndex];
   if (currentQuestion.answers[idx].correct) {
     console.log("correct!!");
+    alert("correct!")
     correctAnswerCount++;
     showNextQuestion()
   }else {
     console.log("wrong Answer !");
+    alert("wrong Answer !");
     showNextQuestion()
   }   
   
@@ -164,7 +149,11 @@ console.log(nameInput)
 
 var userData = {user: nameInput, percent: score};
 answers.push(userData);
-localStorage.setItem("scores", JSON.stringify(answers));
+localStorage.setItem("scores", JSON.stringify(answers)); 
+//bring user to highscore page
+document.location.reload('highscores.html');
+
+//
     // We could empty the questions container 
     // --> dynamically create the Result Container(conent - form)
 
@@ -173,3 +162,26 @@ localStorage.setItem("scores", JSON.stringify(answers));
     // --> once user submits data 
        // --> document.location.reload('highscores.html');
   };
+
+  
+  // getting span element to replace w real time
+ var time = document.getElementById('time');
+ // fun
+ 
+function timer(){
+  let seconds = 75 ;
+  //display initial time
+  console.log(seconds);
+  const interval = setInterval(()=> {
+    seconds--;
+    time.innerHTML = seconds;
+    // display updated time
+    console.log(seconds);
+    if(seconds=== 0){
+      clearInterval(interval);
+      console.log("Times out!!");
+      showResult();
+     
+    }
+  },1000);
+}
