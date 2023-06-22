@@ -1,5 +1,6 @@
 // answer array
-
+ 
+ var answers = JSON.parse(localStorage.getItem("scores")) || [] ;
   
   
           
@@ -157,7 +158,13 @@ function showNextQuestion() {
     var score = correctAnswerCount * 20;
     console.log("score: " + score + "% " )
     
+//prompt(' what is your nick name ??')
+var nameInput = prompt(' what is your nick name ??')
+console.log(nameInput)
 
+var userData = {user: nameInput, percent: score};
+answers.push(userData);
+localStorage.setItem("scores", JSON.stringify(answers));
     // We could empty the questions container 
     // --> dynamically create the Result Container(conent - form)
 
