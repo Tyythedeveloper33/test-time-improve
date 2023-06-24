@@ -151,7 +151,7 @@ var userData = {user: nameInput, percent: score};
 answers.push(userData);
 localStorage.setItem("scores", JSON.stringify(answers)); 
 //bring user to highscore page
-document.location.reload('highscores.html');
+
 
 //
     // We could empty the questions container 
@@ -160,7 +160,7 @@ document.location.reload('highscores.html');
     // We could use a prompt to gather user data
 
     // --> once user submits data 
-       // --> document.location.reload('highscores.html');
+       window.location.href ="highscores.html"
   };
 
   
@@ -168,7 +168,8 @@ document.location.reload('highscores.html');
  var time = document.getElementById('time');
  // fun
  
-function timer(){
+function timer(event){
+ 
   let seconds = 75 ;
   //display initial time
   console.log(seconds);

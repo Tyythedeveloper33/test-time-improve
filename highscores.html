@@ -49,16 +49,17 @@
         //out put the array of objects 
         console.log(userScore);
 // logs it to page using string all together
- var storedObject = JSON.parse(localStorage.getItem('userScore'));
+ var storedObject = JSON.parse(localStorage.getItem('scores'));
  // convert the object to a string representation
  var objectString = JSON.stringify(storedObject);
  // logs the string representation onto page
  console.log(objectString);
  // extract the values from the object 
- var username = storedObject.username;
- var scoredUser = storedObject.userScore;
+  var highscores = storedObject.scores
+ //var username = storedObject.username;
+// var scoredUser = storedObject.userScore;
  // display the string on your page
- document.getElementById('username').textContent = username, + 'userScore' ;
+ document.getElementById('username').textContent = highscores, + '%' ;
  // add event listener for restart button
   var restartQuizBtn = document.querySelector("#RestartQuiz");
   //trigger back to start screen when clicked
@@ -68,7 +69,7 @@
      var questionContainer = document.querySelector("#question-box");
         // - remove or clear all contents
         questionContainer.innerHTML ="";
-        startTest();
+        renderQuestion();
         timer();
   }
 // Time Placeholder (global)
