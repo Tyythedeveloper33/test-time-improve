@@ -183,7 +183,7 @@ localStorage.setItem("scores", JSON.stringify(answers));
        // Condition to TEST if we ran out of time 
        if(countdown == 0) {
            console.log("Timer Expired...");
-
+           showResult();
            clearInterval(interval);
            return ;
        }

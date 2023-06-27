@@ -16,10 +16,11 @@
     <div id="question-box">
          <h1>Highscores!!</h1>
         <p >  <span id="username"></span>: <span id="percent"></span>%</p>
-        <h3>hit restart to try again, but with half the Time !!</h3>
+        <h3>Restarting the test is to gain better understanding, try to make sure you capitilize on the answers you missed with only 2/3 of the time !!</h3>
         <button id="RestartQuiz"class="btn">Restart</button>
+        
     </div>
-    
+    <button id="ClearScore"class="btn">Clear</button>
     <footer>
         Github:Tyythedeveloper33 ||  Email:webstertyler81@yahoo.com
     </footer>
@@ -30,8 +31,9 @@
         userElement.textContent = savedName;
         var userScore = document.getElementById('percent');
         userScore.textContent = savedScore;
-
-
+// foir clear btn
+var clearBtn = document.getElementById('ClearScore');
+clearBtn.addEventListener('click', clearScores);
         //  we need to make sure we GRAB any data in localStorage (by the "KEY")
         var savedName = localStorage.getItem('prompt');
         console.log("Saved Name: ", savedName);
@@ -50,16 +52,19 @@
         console.log(userScore);
 // logs it to page using string all together
  var storedObject = JSON.parse(localStorage.getItem('scores'));
+
  // convert the object to a string representation
  var objectString = JSON.stringify(storedObject);
  // logs the string representation onto page
  console.log(objectString);
  // extract the values from the object 
   var highscores = storedObject.scores
+  
+  
  //var username = storedObject.username;
 // var scoredUser = storedObject.userScore;
  // display the string on your page
- document.getElementById('username').textContent = highscores, + '%' ;
+ document.getElementById('username').textContent =  highscores ;
  // add event listener for restart button
   var restartQuizBtn = document.querySelector("#RestartQuiz");
   //trigger back to start screen when clicked
@@ -71,6 +76,7 @@
         questionContainer.innerHTML ="";
         renderQuestion();
        timer();
+       clearBtn.textContent = "";
   }
 
 // get result
@@ -94,7 +100,7 @@ localStorage.setItem("scores", JSON.stringify(answers));
 // Time Placeholder (global)
 var time = document.getElementById('time');
 
-var countdown = 5;
+var countdown = 50;
 
 function timer() {
   var interval = setInterval(function() {
@@ -117,7 +123,11 @@ function timer() {
    
 
 }
-
+ function clearScores(){
+    console.log("no highscore");
+    if(clearScores)
+    scores.textContent ='';
+ };
 
 
 
