@@ -70,30 +70,53 @@
         // - remove or clear all contents
         questionContainer.innerHTML ="";
         renderQuestion();
-        timer();
+       timer();
   }
-// Time Placeholder (global)
-var countdown = 75;
 
+// get result
+var answers = JSON.parse(localStorage.getItem("scores")) || [] ;
+//
+  function showResult() {
+   
+   var score = correctAnswerCount * 20;
+   console.log("score: " + score + "% " )
+  
+//prompt(' what is your nick name ??')
+var nameInput = prompt(' what is your nick name ??')
+console.log(nameInput)
+
+var userData = {user: nameInput, percent: score};
+answers.push(userData);
+localStorage.setItem("scores", JSON.stringify(answers));
+
+
+}
+// Time Placeholder (global)
+var time = document.getElementById('time');
+
+var countdown = 5;
 
 function timer() {
-   var interval = setInterval(function() {
-       // console.log("Count: ", countdown);
-        // Update our countdown variable value
-        countdown = countdown - 1;
-        // countdown--
-        // Let's update the value on the DOM (Browser)
-        timerElement.textContent = countdown;
-        // Condition to TEST if we ran out of time 
-        if(countdown === 0) {
-            console.log("Timer Expired...");
-            clearInterval(interval);
-            getPercent();
-        }
+  var interval = setInterval(function() {
+      // console.log("Count: ", countdown);
+       // Update our countdown variable value
+       countdown = countdown - 1; 
+       
+       // countdown--
+       // Let's update the value on the DOM (Browser)
+       time.textContent = countdown;
+       // Condition to TEST if we ran out of time 
+       if(countdown == 0) {
+        
+           console.log("Timer Expired...");
+           showResult();
+       }
 
-    }, 1000)
+   }, 1000)
 
-};
+   
+
+}
 
 
 

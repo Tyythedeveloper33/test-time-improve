@@ -67,13 +67,14 @@ var startQuizBtn = document.querySelector("#startQuiz");
 
 // adding event listeners
 startQuizBtn.addEventListener('click', renderQuestion);
+startQuizBtn.addEventListener('click', timer);
 // submitBtn.addEventListener("click", handleAnswerSelection);
 // questionContainer.addEventListener("click", handleAnswerSelection)
 // questionContainer.addEventListener("submit", handleAnswerSubmission)
 
 // this brings up question 1
 function renderQuestion() {
-   timer()
+ 
   var question = questions[questionIndex];
   var newFieldset = document.createElement("fieldset");
   var newLegend = document.createElement("legend");
@@ -167,22 +168,26 @@ localStorage.setItem("scores", JSON.stringify(answers));
   // getting span element to replace w real time
  var time = document.getElementById('time');
  // fun
- 
-function timer(event){
- 
-  let seconds = 75 ;
-  //display initial time
-  console.log(seconds);
-  const interval = setInterval(()=> {
-    seconds--;
-    time.innerHTML = seconds;
-    // display updated time
-    console.log(seconds);
-    if(seconds=== 0){
-      clearInterval(interval);
-      console.log("Times out!!");
-      showResult();
-     
-    }
-  },1000);
+ var countdown = 75;
+
+
+ function timer() {
+  var interval = setInterval(function() {
+      // console.log("Count: ", countdown);
+       // Update our countdown variable value
+       countdown = countdown - 1; 
+       
+       // countdown--
+       // Let's update the value on the DOM (Browser)
+       time.textContent = countdown;
+       // Condition to TEST if we ran out of time 
+       if(countdown == 0) {
+           console.log("Timer Expired...");
+
+           clearInterval(interval);
+           return ;
+       }
+
+   }, 1000)
+
 }
