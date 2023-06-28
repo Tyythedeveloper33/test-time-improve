@@ -27,14 +27,8 @@
 
     <script>
 
-        //giving saved score& saved name values
         
- // We can update/modify the DOM
-     //   var userElement = document.getElementById('username');
-      //  userElement.textContent = savedName;
-      // var userScore = document.getElementById('percent');
-      //  userScore.textContent = savedScore;
-// foir clear btn
+// for clear btn
 var clearBtn = document.getElementById('ClearScore');
 clearBtn.addEventListener('click', clearScores);
         //  we need to make sure we GRAB any data in localStorage (by the "KEY")
@@ -57,31 +51,14 @@ clearBtn.addEventListener('click', clearScores);
         }
       
        
-        //  adding class
+        
        
 
 
       
       
 
-        //out put the array of objects 
-       // console.log(userScore);
-// retrieves the scores object from local storage
- //var storedObject = JSON.parse(localStorage.getItem('scores'));
-
- // convert the object to a string representation
-// var objectString = JSON.stringify(storedObject);
- // logs the string representation onto page
- //console.log(objectString);
- // extract the values from the object 
-  //var highscores = storedObject.scores
-  
- 
-  
- //var username = storedObject.username;
-// var scoredUser = storedObject.userScore;
- // display the string on your page
- //document.getElementById('username').textContent =  highscores ;
+       
  // add event listener for restart button
   var restartQuizBtn = document.querySelector("#RestartQuiz");
   //trigger back to start screen when clicked
@@ -140,6 +117,7 @@ function timer() {
    
 
 }
+//clearbtn functiom
  function clearScores(){
     console.log("clearing scores ...");
     localStorage.removeItem('scores');

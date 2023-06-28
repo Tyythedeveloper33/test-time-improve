@@ -68,9 +68,7 @@ var startQuizBtn = document.querySelector("#startQuiz");
 // adding event listeners
 startQuizBtn.addEventListener('click', renderQuestion);
 startQuizBtn.addEventListener('click', timer,);
-// submitBtn.addEventListener("click", handleAnswerSelection);
-// questionContainer.addEventListener("click", handleAnswerSelection)
-// questionContainer.addEventListener("submit", handleAnswerSubmission)
+
 
 // this brings up question 1
 function renderQuestion() {
@@ -99,7 +97,7 @@ function renderQuestion() {
 }
 
 
-
+//checks to see if answer is correct
 function checkAnswer(idx) {
   var currentQuestion = questions[questionIndex];
   if (currentQuestion.answers[idx].correct) {
@@ -151,15 +149,10 @@ console.log(nameInput)
 var userData = {user: nameInput, percent: score};
 answers.push(userData);
 localStorage.setItem("scores", JSON.stringify(answers)); 
+
+
+
 //bring user to highscore page
-
-
-//
-    // We could empty the questions container 
-    // --> dynamically create the Result Container(conent - form)
-
-    // We could use a prompt to gather user data
-
     // --> once user submits data 
        window.location.href ="highscores.html"
   };
@@ -173,7 +166,7 @@ localStorage.setItem("scores", JSON.stringify(answers));
 
  function timer() {
   var interval = setInterval(function() {
-      // console.log("Count: ", countdown);
+     
        // Update our countdown variable value
        countdown = countdown - 1; 
        
