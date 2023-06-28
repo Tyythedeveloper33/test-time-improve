@@ -58,15 +58,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
+© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 ## Review
 
 You are required to submit BOTH of the following for review:
 
 * The URL of the functional, deployed application.
+https://tyythedeveloper33.github.io/test-time-improve/
 
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+* The URL of the GitHub repository.
+https://github.com/Tyythedeveloper33/test-time-improve
 
----
 
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
