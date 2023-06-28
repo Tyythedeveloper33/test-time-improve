@@ -67,7 +67,7 @@ var startQuizBtn = document.querySelector("#startQuiz");
 
 // adding event listeners
 startQuizBtn.addEventListener('click', renderQuestion);
-startQuizBtn.addEventListener('click', timer);
+startQuizBtn.addEventListener('click', timer,);
 // submitBtn.addEventListener("click", handleAnswerSelection);
 // questionContainer.addEventListener("click", handleAnswerSelection)
 // questionContainer.addEventListener("submit", handleAnswerSubmission)

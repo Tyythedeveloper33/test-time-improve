@@ -26,10 +26,13 @@
     </footer>
 
     <script>
+
+        //giving saved score& saved name values
+        
  // We can update/modify the DOM
         var userElement = document.getElementById('username');
         userElement.textContent = savedName;
-        var userScore = document.getElementById('percent');
+       var userScore = document.getElementById('percent');
         userScore.textContent = savedScore;
 // foir clear btn
 var clearBtn = document.getElementById('ClearScore');
@@ -41,16 +44,18 @@ clearBtn.addEventListener('click', clearScores);
         console.log("Saved Scores: ", savedScore);
         
         
-        
+      
        
-        //create array for score
+        // creating & appending list
+        
+
 
       
       
 
         //out put the array of objects 
         console.log(userScore);
-// logs it to page using string all together
+// retrieves the scores object from local storage
  var storedObject = JSON.parse(localStorage.getItem('scores'));
 
  // convert the object to a string representation
@@ -60,6 +65,7 @@ clearBtn.addEventListener('click', clearScores);
  // extract the values from the object 
   var highscores = storedObject.scores
   
+ 
   
  //var username = storedObject.username;
 // var scoredUser = storedObject.userScore;
@@ -124,9 +130,9 @@ function timer() {
 
 }
  function clearScores(){
-    console.log("no highscore");
-    if(clearScores)
-    scores.textContent ='';
+    console.log("clearing scores ...");
+    localStorage.removeItem('scores');
+    
  };
 
 
