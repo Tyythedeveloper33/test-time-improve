@@ -149,3 +149,11 @@ width: 150px;
 margin-left:30px;
 width: 150px;
  }
+   
+
+ .white {
+  color: white;
+  font-size: 22px;
+  margin: auto;
+  width: 90px;
+ }

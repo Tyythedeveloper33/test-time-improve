@@ -15,7 +15,7 @@
    
     <div id="question-box">
          <h1>Highscores!!</h1>
-        <p >  <span id="username"></span>: <span id="percent"></span>%</p>
+        <div id="highscores">  </div>
         <h3>Restarting the test is to gain better understanding, try to make sure you capitilize on the answers you missed with only 2/3 of the time !!</h3>
         <button id="RestartQuiz"class="btn">Restart</button>
         
@@ -30,47 +30,58 @@
         //giving saved score& saved name values
         
  // We can update/modify the DOM
-        var userElement = document.getElementById('username');
-        userElement.textContent = savedName;
-       var userScore = document.getElementById('percent');
-        userScore.textContent = savedScore;
+     //   var userElement = document.getElementById('username');
+      //  userElement.textContent = savedName;
+      // var userScore = document.getElementById('percent');
+      //  userScore.textContent = savedScore;
 // foir clear btn
 var clearBtn = document.getElementById('ClearScore');
 clearBtn.addEventListener('click', clearScores);
         //  we need to make sure we GRAB any data in localStorage (by the "KEY")
-        var savedName = localStorage.getItem('prompt');
+       var scoreString = localStorage.getItem('scores')
+       var scoreCombination = '';
+
+       
+       if (scoreString){
+       for (let el of JSON.parse(scoreString)){
+        var savedName = el.user
         console.log("Saved Name: ", savedName);
-        var savedScore = localStorage.getItem('percent');
-        console.log("Saved Scores: ", savedScore);
+        var savedScore = el.percent
+       console.log("Saved Scores: ", savedScore);
+       var highscoreContainer = document.getElementById('highscores')
+    scoreCombination  +=  `<div class ="white" > ${savedName}  :  ${savedScore} %  </div>`
+       console.log(highscoreContainer)
+       }
         
-        
+          highscoreContainer.innerHTML = scoreCombination
+        }
       
        
-        // creating & appending list
-        
+        //  adding class
+       
 
 
       
       
 
         //out put the array of objects 
-        console.log(userScore);
+       // console.log(userScore);
 // retrieves the scores object from local storage
- var storedObject = JSON.parse(localStorage.getItem('scores'));
+ //var storedObject = JSON.parse(localStorage.getItem('scores'));
 
  // convert the object to a string representation
- var objectString = JSON.stringify(storedObject);
+// var objectString = JSON.stringify(storedObject);
  // logs the string representation onto page
- console.log(objectString);
+ //console.log(objectString);
  // extract the values from the object 
-  var highscores = storedObject.scores
+  //var highscores = storedObject.scores
   
  
   
  //var username = storedObject.username;
 // var scoredUser = storedObject.userScore;
  // display the string on your page
- document.getElementById('username').textContent =  highscores ;
+ //document.getElementById('username').textContent =  highscores ;
  // add event listener for restart button
   var restartQuizBtn = document.querySelector("#RestartQuiz");
   //trigger back to start screen when clicked
