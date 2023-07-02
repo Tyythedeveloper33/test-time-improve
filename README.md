@@ -25,7 +25,7 @@ highscore page
  * step 2- you want to create a repository to your local environment(Terminal) using command- git init
  * step 3- you will want to open up this code from your terminal onto Visual Studio Code using command- code .
  * Step 4- once VS-Code is open you will click open folder, and find the folder you named in (step #1)
- * Step 5- you will notice that the folder is empty, go ahead and create 2 new files  and rename them(index.html,and style.css) by right clicking over the untitled file, then click rename!
+ * Step 5- you will notice that the folder is empty, go ahead and create 4 new files  and rename them(index.html,and style.css) by right clicking over the untitled file, then click rename!
  * Step 6- Go ahead back to where you found my gitgub pages, and copy the index.html, and paste it into yours!
  * Step 7- Go ahead back to where you found my gitgub pages, and copy the style.css, and paste it into yours!
  * Step 8- Go ahead back to where you found my gitgub pages, and copy the highscores.html, and paste it into yours!
